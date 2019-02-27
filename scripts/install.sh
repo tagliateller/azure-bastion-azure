@@ -21,32 +21,10 @@ python get-pip.py
 echo $(date) " - Install Ansible"
 
 pip install ansible
-pip install boto
+pip install boto3
 
 echo $(date) " - Checkout Git Repo"
 
 yum -y install git
 
-git clone https://github.com/tagliateller/openshift-ansible.git openshift-ansible
-cd openshift-ansible
-git checkout release-3.11
-
-#https://github.com/openshift/openshift-ansible/tree/release-3.11/playbooks/aws
-		
-#~/.aws/credentials 
-		
-#[myaccount]
-#aws_access_key_id = <Your access_key here>
-#aws_secret_access_key = <Your secret acces key here>
-
-echo $(date) " - Create AWS Credentials"
-
-mkdir -p ~/.aws/
-cat > ~/.aws/credentials <<EOF
-[myaccount]
-aws_access_key_id = ${AWSACCESSKEYID}
-aws_secret_access_key = ${AWSSECRETACCESSKEY}
-EOF
- 
-echo $(date) " - Script Complete"
-
+echo $(date) " - Script complete"
