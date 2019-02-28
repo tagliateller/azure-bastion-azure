@@ -4,8 +4,17 @@ export AZURE_SUBSCRIPTION_ID=$1
 export AZURE_CLIENT_ID=$2
 export AZURE_SECRET=$3
 export AZURE_TENANT=$4
+export USERNAME=$5
+export SSH_PRIVATE_DATA=$6
 
 echo $(date) " - Starting Script"
+
+# Install EPEL repository
+echo $(date) " - Installing SSH data"
+
+echo ${SSH_PRIVATE_DATA} | base64 --d > /home/${USERNAME}/.ssh/id_rsa 
+
+echo $(date) " - SSH data successfully installed"
 
 # Install EPEL repository
 echo $(date) " - Installing EPEL"

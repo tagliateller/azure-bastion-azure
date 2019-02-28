@@ -90,7 +90,13 @@
         },
         "azureTenant": {
             "type": "string"
-        }
+        },
+		    "sshPrivateData" : {
+      "type" : "securestring",
+      "metadata" : {
+        "description" : "SSH RSA private key file as a base64 string."
+      }
+}
     },
     "variables": {
         "nsgId": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]",
@@ -295,7 +301,7 @@
 					]
 				},
 				"protectedSettings": {
-					"commandToExecute": "[concat('bash ', variables('installScriptFileName'), ' ', variables('singlequote'), parameters('azureSubscriptionId'), variables('singlequote'), ' ', variables('singlequote'), parameters('azureClientId'), variables('singlequote'), ' ', variables('singlequote'), parameters('azureSecret'), variables('singlequote'), ' ', variables('singlequote'), parameters('azureTenant'), variables('singlequote'))]"
+					"commandToExecute": "[concat('bash ', variables('installScriptFileName'), ' ', variables('singlequote'), parameters('azureSubscriptionId'), variables('singlequote'), ' ', variables('singlequote'), parameters('azureClientId'), variables('singlequote'), ' ', variables('singlequote'), parameters('azureSecret'), variables('singlequote'), ' ', variables('singlequote'), parameters('azureTenant'), variables('singlequote'), ' ', variables('singlequote'), parameters('adminUsername'), variables('singlequote'), ' ',variables('singlequote'),  parameters('sshPrivateData'), variables('singlequote'))]"
 				}
 			}
 		}       

@@ -127,6 +127,9 @@
 		},
 		"azureTenant": {
 			"value": "tochange"
-		}
+		},
+		"sshPrivateData": {
+                        "value": "tochange"
+                }
     }
 }
