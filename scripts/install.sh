@@ -40,6 +40,7 @@ pip install ansible
 #echo $(date) " - Checkout Git Repo"
 
 yum -y install git
+yum -y install tmux
 
 echo $(date) " - Install Credentials für Azure"
 
