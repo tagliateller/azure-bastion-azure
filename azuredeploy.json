@@ -8,7 +8,7 @@
 				"description": "The base URL where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription will be used and this value will be automatically generated.",
 				"artifactsBaseUrl": ""
 			},
-			"defaultValue": "https://raw.githubusercontent.com/tagliateller/azure-bastion/master" 
+			"defaultValue": "https://raw.githubusercontent.com/tagliateller/azure-bastion-azure/master" 
 		},
         "location": {
             "type": "string"
@@ -79,15 +79,18 @@
         "diagnosticsStorageAccountKind": {
             "type": "string"
         },
-		"awsUserName": {			
-			"type": "string"
-		},
-		"awsAccessKeyId": {
-			"type": "secureString"
-		},
-		"awsSecretAccessKey": {
-			"type": "secureString"
-		}
+        "azureSubscriptionId": {
+            "type": "string"
+        },
+        "azureClientId": {
+            "type": "string"
+        },
+        "azureSecret": {
+            "type": "string"
+        },
+        "azureTenant": {
+            "type": "string"
+        }
     },
     "variables": {
         "nsgId": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]",
@@ -292,7 +295,7 @@
 					]
 				},
 				"protectedSettings": {
-					"commandToExecute": "[concat('bash ', variables('installScriptFileName'), ' ', variables('singlequote'), parameters('awsAccessKeyId'), variables('singlequote'), ' ', variables('singlequote'), parameters('awsSecretAccessKey'), variables('singlequote'))]"
+					"commandToExecute": "[concat('bash ', variables('installScriptFileName'), ' ', variables('singlequote'), parameters('azureSubscriptionId'), variables('singlequote'), ' ', variables('singlequote'), parameters('azureClientId'), variables('singlequote'), ' ', variables('singlequote'), parameters('azureSecret'), variables('singlequote'), ' ', variables('singlequote'), parameters('azureTenant'), variables('singlequote'))]"
 				}
 			}
 		}       

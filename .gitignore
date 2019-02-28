@@ -2,3 +2,4 @@
 
 *.local
 *.parameters.local.json
+*.bak

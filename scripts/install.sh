@@ -1,7 +1,9 @@
 #!/bin/bash
 
-export AWSACCESSKEYID=$1
-export AWSSECRETACCESSKEY=$2 
+export AZURE_SUBSCRIPTION_ID=$1
+export AZURE_CLIENT_ID=$2
+export AZURE_SECRET=$3
+export AZURE_TENANT=$4
 
 echo $(date) " - Starting Script"
 
@@ -21,10 +23,21 @@ python get-pip.py
 echo $(date) " - Install Ansible"
 
 pip install ansible
-pip install boto3
+#pip install boto3
 
-echo $(date) " - Checkout Git Repo"
+#echo $(date) " - Checkout Git Repo"
 
 yum -y install git
+
+echo $(date) " - Install Credentials für Azure"
+
+cat > ~/.azure/credentials <<EOF
+[default]
+subscription_id=${AZURE_SUBSCRIPTION_ID}
+client_id=${AZURE_CLIENT_ID}
+secret=${AZURE_SECRET}
+tenant=${AZURE_TENANT}
+EOF
+
 
 echo $(date) " - Script complete"

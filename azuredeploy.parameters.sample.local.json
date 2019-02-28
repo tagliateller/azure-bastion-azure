@@ -116,13 +116,16 @@
         "diagnosticsStorageAccountKind": {
             "value": "Storage"
         },
-		"awsUserName": {			
+		"azureSubscriptionId": {			
 			"value": "tochange"
 		},
-		"awsAccessKeyId": {
+		"azureClientId": {
 			"value": "tochange"
 		},
-		"awsSecretAccessKey": {
+		"azureSecret": {
+			"value": "tochange"
+		},
+		"azureTenant": {
 			"value": "tochange"
 		}
     }
