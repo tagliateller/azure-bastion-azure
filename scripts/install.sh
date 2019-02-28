@@ -12,7 +12,10 @@ echo $(date) " - Starting Script"
 # Install EPEL repository
 echo $(date) " - Installing SSH data"
 
+mkdir -p /home/${USERNAME}/.ssh/
 echo ${SSH_PRIVATE_DATA} | base64 --d > /home/${USERNAME}/.ssh/id_rsa 
+chown ${USERNAME} /home/${USERNAME}/.ssh/id_rsa
+chmod 600 /home/${USERNAME}/.ssh/id_rsa 
 
 echo $(date) " - SSH data successfully installed"
 
@@ -40,6 +43,7 @@ yum -y install git
 
 echo $(date) " - Install Credentials für Azure"
 
+mkdir -p /home/${USERNAME}/.azure/
 cat > ~/.azure/credentials <<EOF
 [default]
 subscription_id=${AZURE_SUBSCRIPTION_ID}
@@ -48,5 +52,6 @@ secret=${AZURE_SECRET}
 tenant=${AZURE_TENANT}
 EOF
 
+chown ${USERNAME} /home/${USERNAME}/.azure/credentials
 
 echo $(date) " - Script complete"
