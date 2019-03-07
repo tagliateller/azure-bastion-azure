@@ -35,7 +35,7 @@ python get-pip.py
 echo $(date) " - Install Ansible"
 
 pip install ansible
-#pip install boto3
+pip install packaging
 
 #echo $(date) " - Checkout Git Repo"
 
