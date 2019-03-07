@@ -34,8 +34,8 @@ python get-pip.py
 
 echo $(date) " - Install Ansible"
 
-pip install ansible
 pip install packaging
+pip install ansible[azure]
 
 #echo $(date) " - Checkout Git Repo"
 
