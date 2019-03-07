@@ -57,22 +57,22 @@ chown ${USERNAME} /home/${USERNAME}/.azure/credentials
 
 git clone git@github.com:tagliateller/openshift-origin.git tagliateller-openshift-origin
 cd tagliateller-openshift-origin
-git checkout release-3.11
+git checkout -b release-3.11 origin/release-3.11
 
 git clone git@github.com:tagliateller/azure-openshift-svt.git tagliateller-azure-openshift-svt
 cd tagliateller-azure-openshift-svt
-git checkout release-3.11
+git checkout -b release-3.11 origin/release-3.11
 
 git clone git@github.com:tagliateller/azure-bastion-van.git tagliateller-azure-bastion-van
 cd tagliateller-azure-bastion-van
-git checkout release-3.11
+git checkout -b release-3.11 origin/release-3.11
 
 git clone git@github.com:tagliateller/azure-bastion-kubevirt.git tagliateller-azure-bastion-kubevirt
 cd tagliateller-azure-bastion-kubevirt
-git checkout release-3.11
+git checkout -b release-3.11 origin/release-3.11
 
 git clone git@github.com:tagliateller/azure-origin-windows.git tagliateller-azure-origin-windows
 cd tagliateller-azure-origin-windows
-git checkout release-3.11
+git checkout -b release-3.11 origin/release-3.11
 
 echo $(date) " - Script complete"
