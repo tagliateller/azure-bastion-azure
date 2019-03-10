@@ -37,6 +37,14 @@ echo $(date) " - Install Ansible"
 pip install packaging
 pip install ansible[azure]
 
+# in etc/ansible/ansible.cfg für die no host key check ändern
+
+mkdir -p /etc/ansible
+cat > /etc/ansible/ansible.cfg <<EOF
+[defaults]
+host_key_checking = False
+EOF
+
 #echo $(date) " - Checkout Git Repo"
 
 yum -y install git
